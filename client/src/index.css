@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.6rem;
+  height: 100vh;
+  background: #F5F4F8;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+code {
+  font-family: 'Open Sans', sans-serif;
+}
