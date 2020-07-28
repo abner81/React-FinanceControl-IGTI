@@ -24,3 +24,10 @@ export const deleteTransactionByiD = async (id) => {
   return req.data
 }
 
+export const createTransaction = async (body) => {
+  const req = await axios.post(
+    `${baseURL}create`, body
+  );
+  return req.data
+}
+

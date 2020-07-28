@@ -1,24 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
+import * as api from "../../api/apiService";
 import * as S from "./styled";
 
+import Alert from "./Alert";
+
 export default function Lancamento() {
+  const { register, handleSubmit, reset, errors } = useForm();
 
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [fullDate, setFullDate] = useState("");
+  const [dataState, setDataState] = useState({});
+  const [requisitionSucess, setRequisitionSucess] = useState(null);
 
-  /* const handleDatePicker = (event) => {
-    const date = event.target.value;
-    const splitDate = date.split("-");
-    console.log(splitDate);
-  }; */
+  const onSubmit = (data, e) => {
+    e.target.reset()
+    handleFormData(data);
+  }
 
-  const handleRequisitionForm = (event) => {
-    /* const date = event.target.value;
-    const splitDate = date.split("-");
-    console.log(splitDate); */
+  const handleFormData = (data) => {
+    setFullDate(data.date);
+    setDataState(data);
   };
+
+  useEffect(() => {
+    const handleRequisitionForm = async () => {
+      const separateDate = fullDate.split("-");
+
+      const year = separateDate[0];
+      const yearMonthDay = fullDate;
+      const month = separateDate[1];
+      const monthOneLength = parseInt(separateDate[1], 10);
+      const day = parseInt(separateDate[2], 10);
+      const yearMonth = `${year}-${month}`;
+
+      const bodyRequisition = {
+        year: year,
+        month: monthOneLength,
+        day: day,
+        yearMonth: yearMonth,
+        type: dataState.type,
+        yearMonthDay: yearMonthDay,
+        description: dataState.descricao,
+        category: dataState.categoria,
+        value: dataState.value,
+      };
+
+      if (bodyRequisition.yearMonthDay !== "") {
+        try {
+          const req = await api.createTransaction(bodyRequisition);
+          console.log(req);
+          setRequisitionSucess(true)
+
+        } catch (error) {
+          console.log('Ocorreu um erro na requisição')
+        }
+      }
+    };
+
+    handleRequisitionForm();
+  }, [fullDate, dataState]);
+
 
   return (
     <S.FormWrapper className="container">
@@ -115,10 +157,19 @@ export default function Lancamento() {
             </div>
           </div>
           <S.SubmitDiv>
-            <input type="submit" class="btn btn-primary" onClick={handleRequisitionForm}/>
+            <input type="submit" class="btn btn-primary" />
           </S.SubmitDiv>
         </S.InputWrapper>
       </form>
+      {requisitionSucess === true && (
+        setInterval(() => {
+          return <Alert type="success">Transação adicionada com sucesso!</Alert>
+    }, 50)
+      )}
+      {requisitionSucess === false && (
+        <Alert type="danger">Erro ao adicionar a transação...</Alert>
+        
+      )}
     </S.FormWrapper>
   );
 }

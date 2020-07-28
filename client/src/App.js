@@ -4,6 +4,7 @@ import Dashboard from "./components/Dashboard/index";
 import Header from "./components/Header";
 import ListTransaction from "./components/ListTransactions";
 import CalendarFilter from "./components/Calendar_Filter";
+import BackToTop from './components/BackToTop/index'
 
 import * as api from "./api/apiService";
 import PERIOD from "./helpers/period";
@@ -94,6 +95,7 @@ export default function App() {
           </Main>
         </>
       )}
+      <BackToTop />
     </>
   );
 }
