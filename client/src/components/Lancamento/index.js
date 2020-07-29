@@ -162,9 +162,7 @@ export default function Lancamento() {
         </S.InputWrapper>
       </form>
       {requisitionSucess === true && (
-        setInterval(() => {
-          return <Alert type="success">Transação adicionada com sucesso!</Alert>
-    }, 50)
+        <Alert type="success">Transação adicionada com sucesso!</Alert>
       )}
       {requisitionSucess === false && (
         <Alert type="danger">Erro ao adicionar a transação...</Alert>
