@@ -22,7 +22,7 @@ export default function App() {
   useEffect(() => {
     try {
       const requisition = async () => {
-        const req = await api.getAllTransactions(periodState);
+        const req = await api.getAllTransactions(periodState, 0, 5);
         const sortArray = req.sort((a, b) => a.day - b.day);
         setTransactions(sortArray);
       };
@@ -31,7 +31,7 @@ export default function App() {
     } catch (error) {
       console.log("Erro ao se comunicar com a api");
     }
-  }, [periodState, modalSubmit]);
+  }, []);
 
   const handleState = (event) => {
     setPeriodState(event);

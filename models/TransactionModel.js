@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const mongoosePaginate = require("mongoose-paginate");
 let schema = mongoose.Schema({
   description: String,
   value: Number,
@@ -11,6 +11,8 @@ let schema = mongoose.Schema({
   yearMonthDay: String,
   type: String,
 });
+
+schema.plugin(mongoosePaginate);
 
 const TransactionModel = mongoose.model('transaction', schema);
 

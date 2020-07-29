@@ -3,6 +3,9 @@ const TransactionModel = require("../models/TransactionModel");
 
 const getAllTransactions = async (req, res) => {
   const period = req.query.period;
+  const pageNumber = parseInt(req.headers.pagenumber, 10);
+  const nPerPage = parseInt(req.headers.nperpage, 10);
+  console.log(pageNumber)
   try {
     if (!period)
       res
@@ -11,9 +14,13 @@ const getAllTransactions = async (req, res) => {
           error:
             "É necessário informar o parâmetro (period), cujo valor deve estar no formato yyyy-mm",
         }); 
+ 
 
-    const req = await TransactionModel.find({ yearMonth: period });
-      res.send(req)
+   const requisition = await TransactionModel.find({ yearMonth: period })
+     .skip(pageNumber > 0 ? (pageNumber - 1) * nPerPage : 0)
+     .limit(nPerPage)
+     .sort({ day: 1 }); 
+    res.send(requisition);
   } catch (error) {
     res
       .status(400)

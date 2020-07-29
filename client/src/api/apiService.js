@@ -2,9 +2,9 @@ import axios from "axios";
 
 const baseURL = "http://localhost:3001/api/transaction/";
 
-export const getAllTransactions = async (periodState) => {
+export const getAllTransactions = async (periodState, skip, limit) => {
   const req = await axios.get(
-    `${baseURL}?period=${periodState}`
+    `${baseURL}?period=${periodState}&skip=${skip}&limit=${limit}`
   );
   const res = req.data
   return res
