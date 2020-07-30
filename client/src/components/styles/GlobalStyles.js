@@ -1,11 +1,12 @@
 import { createGlobalStyle } from "styled-components";
+import media from "styled-media-query";
 
 export const GlobalStyles = createGlobalStyle`
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+  /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
-   License: none (public domain)
-*/
+   License: none (public domain) */
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -23,11 +24,11 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -50,6 +51,26 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+ 
+${media.lessThan("large")`{
+  html {
+		font-size: 85%;
+	}
+	`}
+	
+${media.lessThan("medium")`{
+  html {
+		font-size: 82%;
+	}
+	`}
+	
+${media.lessThan("small")`{
+  html {
+		font-size: 80%;
+	}
+  `}
+
 `;
 
 

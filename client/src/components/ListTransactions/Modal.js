@@ -47,7 +47,12 @@ const ModalComponent = ({
   }
 
   return (
-    <Modal show={state} onHide={handleClose}>
+    <S.ModalWrapper
+      show={state}
+      onHide={handleClose}
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
       <Modal.Header closeButton>
         <Modal.Title>Edição de lançamento</Modal.Title>
       </Modal.Header>
@@ -56,8 +61,9 @@ const ModalComponent = ({
           <S.ModalLabel>Descrição:</S.ModalLabel>
           <input
             type="text"
-            class="form-control"
+            className="form-control input"
             name="description"
+            size="20"
             defaultValue={description}
             ref={register({ required: true })}
           />
@@ -65,7 +71,8 @@ const ModalComponent = ({
           <S.ModalLabel>Categoria:</S.ModalLabel>
           <input
             type="text"
-            class="form-control"
+            className="form-control input"
+            size="20"
             defaultValue={category}
             name="category"
             ref={register({ required: true })}
@@ -77,8 +84,8 @@ const ModalComponent = ({
               <input
                 type="number"
                 step="0.01"
-                size="10"
-                class="form-control"
+                size="20"
+                className="input form-control"
                 defaultValue={value}
                 name="value"
                 ref={register({ required: true })}
@@ -89,8 +96,9 @@ const ModalComponent = ({
               <S.ModalLabel>Data:</S.ModalLabel>
               <input
                 type="date"
-                className="form-control"
+                className="form-control input"
                 id="date"
+                size="20"
                 defaultValue={date}
                 name="yearMonthDay"
                 ref={register({ required: true })}
@@ -103,20 +111,20 @@ const ModalComponent = ({
         <Modal.Footer>
           <button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-secondary footerText"
             onClick={handleClose}
           >
             Cancelar
           </button>
           <input
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary footerText"
             value="Salvar"
             onClick={handleClose}
           />
         </Modal.Footer>
       </form>
-    </Modal>
+    </S.ModalWrapper>
   );
 };
 

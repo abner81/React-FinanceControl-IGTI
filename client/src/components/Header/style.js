@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import media from "styled-media-query";
+
+import Burguer from "../Burguer/index";
 import { Link } from "react-router-dom";
 
 export const HeaderWrapper = styled.header`
@@ -26,21 +29,32 @@ export const HeaderLogoTwo = styled.h2`
 `;
 
 export const HeaderSection = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  padding: 20px 0 0;
-`;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         flex-direction: row;
+         padding: 20px 0 0;
 
-export const HeaderNav = styled.nav``;
+         ${media.lessThan("600px")`
+           width: 90%;
+           margin: 0 auto;
+  `}
+       `;
+
+export const HeaderNav = styled.nav`
+`;
 
 export const HeaderUl = styled.ul`
-  display: flex;
-  align-items: center;
-  color: white;
-  flex-direction: row;
-`;
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         color: white;
+         flex-direction: row;
+
+         ${media.lessThan("600px")`
+           display: none;
+  `}
+       `;
 
 export const HeaderLi = styled.li`
   text-decoration: none;
@@ -60,3 +74,6 @@ export const HeaderLink = styled(Link)`
     color: white;
   }
 `;
+
+export const BurguerWrapper = styled(Burguer)`
+`

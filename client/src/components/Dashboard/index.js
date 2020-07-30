@@ -17,13 +17,6 @@ export default function index({ state }) {
   return (
     <S.DashboardWrapper className="container">
       <Card
-        title="Nº de Lançamentos"
-        value={state.length}
-        iconNumber
-        background="white"
-        fontColor="black"
-      />
-      <Card
         title="Despesas"
         value={formatNumber(resDespesas)}
         iconDown
@@ -38,6 +31,7 @@ export default function index({ state }) {
         fontColor="black"
       />
       <Card
+      className='saldo'
         att="saldo"
         title="Saldo"
         value={formatNumber(resReceitas - resDespesas)}

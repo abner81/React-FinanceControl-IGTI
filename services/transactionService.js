@@ -5,7 +5,6 @@ const getAllTransactions = async (req, res) => {
   const period = req.query.period;
   const pageNumber = parseInt(req.headers.pagenumber, 10);
   const nPerPage = parseInt(req.headers.nperpage, 10);
-  console.log(pageNumber)
   try {
     if (!period)
       res
@@ -20,7 +19,12 @@ const getAllTransactions = async (req, res) => {
      .skip(pageNumber > 0 ? (pageNumber - 1) * nPerPage : 0)
      .limit(nPerPage)
      .sort({ day: 1 }); 
-    res.send(requisition);
+
+    const countTransactions = await TransactionModel.find({
+      yearMonth: period,
+    }).countDocuments()
+
+    res.send({ transactions: requisition, length: countTransactions });
   } catch (error) {
     res
       .status(400)

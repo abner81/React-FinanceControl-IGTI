@@ -13,25 +13,35 @@ import "./index.css";
 import { GlobalStyles } from "./components/styles/GlobalStyles";
 import styled from "styled-components";
 import Spinner from "./components/Spinner/index";
+import Pagination from "./components/Pagination/index";
 
 export default function App() {
   const [periodState, setPeriodState] = useState(PERIOD[0]);
   const [transactions, setTransactions] = useState([]);
   const [modalSubmit, setModalSubmit] = useState(1);
+  const [numberTotalPages, setNumberTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
+    const nPerPage = 25;
     try {
       const requisition = async () => {
-        const req = await api.getAllTransactions(periodState, 0, 5);
-        const sortArray = req.sort((a, b) => a.day - b.day);
-        setTransactions(sortArray);
+        const req = await api.getAllTransactions(
+          periodState,
+          currentPage,
+          nPerPage
+        );
+        setTransactions(req.transactions);
+
+        const totalPages = Math.ceil(req.length / nPerPage);
+        setNumberTotalPages(totalPages);
       };
 
       requisition();
     } catch (error) {
       console.log("Erro ao se comunicar com a api");
     }
-  }, []);
+  }, [periodState, modalSubmit, currentPage]);
 
   const handleState = (event) => {
     setPeriodState(event);
@@ -51,6 +61,11 @@ export default function App() {
     const number = modalSubmit + 1
     setModalSubmit(number);
   }
+
+  const handleNewPage = (event) => {
+    setCurrentPage(event)
+  }
+
 
   return (
     <>
@@ -92,10 +107,15 @@ export default function App() {
                 />
               );
             })}
+            <Pagination
+              totalPages={numberTotalPages}
+              currentPage={currentPage}
+              handleNewPage={handleNewPage}
+            />
           </Main>
+          <BackToTop />
         </>
       )}
-      <BackToTop />
     </>
   );
 }
