@@ -1,6 +1,4 @@
 import React from 'react'
-
-
 import * as S from './style'
 
 export default function index() {
@@ -14,14 +12,6 @@ export default function index() {
         </a>
         <S.HeaderNav>
             <S.BurguerWrapper />
-          <S.HeaderUl>
-            <li >
-              <S.HeaderLink to="/">Listagem</S.HeaderLink>
-            </li>
-            <li >
-              <S.HeaderLink to="/novo-lancamento">Novo Lançamento</S.HeaderLink>
-            </li>
-          </S.HeaderUl>
         </S.HeaderNav>
       </S.HeaderSection>
     </S.HeaderWrapper>

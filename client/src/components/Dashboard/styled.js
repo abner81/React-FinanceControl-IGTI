@@ -38,30 +38,32 @@ export const DashboardWrapper = styled.section`
 `;
 
 export const DashboardCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 150px;
-  width: 25%;
-  min-height: 120px;
-  background: ${(props) => (props.background ? props.background : "#f47859")};
-  padding: 10px 10px 10px 20px;
-  box-shadow: 6px 4px 10px rgba(166, 170, 200, 0.25);
-  border-radius: 5px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         min-width: 150px;
+         width: 25%;
+         min-height: 120px;
+         background: ${(props) =>
+           props.background ? props.background : "#f47859"};
+         padding: 10px 10px 10px 20px;
+         box-shadow: 6px 4px 10px rgba(166, 170, 200, 0.25);
+         border-radius: 5px;
 
-  ${media.lessThan("505px")`
+         ${media.lessThan("505px")`
       margin: 8px 2px 10px 2px;
         width: 45%;
         padding: 2px 2px 2px 5px;
+        word-wrap: break-word;
   `}
 
-  ${media.lessThan("350px")`
+         ${media.lessThan("350px")`
         margin: 8px 2px 10px 2px;
         width: 60%;
         padding: 2px 2px 2px 5px;
   `}
-`;
+       `;
 
 export const DashboardCardTitle = styled.h5`
   font-size: 1.2rem;
@@ -105,13 +107,15 @@ export const IconUpCircle = styled(UpCircle)`
 `;
 
 export const DashboardCardNumber = styled.h3`
-  color: black;
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-top: 15px;
-  color: ${(props) => props.fontColor || "black"};
+         color: black;
+         font-size: 1.6rem;
+         font-weight: 700;
+         margin-top: 15px;
+         color: ${(props) => props.fontColor || "black"};
 
-  ${media.lessThan("505px")`
+         ${media.lessThan("505px")`
       font-size: 1.7rem;
+      max-width: 90%;
+      word-wrap: break-word;
   `}
-`;
+       `;

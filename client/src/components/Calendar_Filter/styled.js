@@ -12,7 +12,7 @@ export const SectionWrapper = styled.section`
 
   ${media.lessThan("505px")`
     flex-wrap: wrap;
-    margin-top: 35px;
+    margin-top: 65px;
   `}
 
   ${media.lessThan("350px")`
@@ -68,7 +68,7 @@ export const InputFilter = styled.input`
 
   ${media.lessThan("505px")`
          width: 85%;
-         margin: 5px auto;
+         margin: 5px auto 25px auto;
          font-size: 1.3rem;
   `}
 

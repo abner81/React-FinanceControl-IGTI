@@ -1,14 +1,19 @@
-import React from 'react'
-import { StyledBurger, DivBurguer } from "./styled";
+import React, { useState } from 'react'
+import RightNav from '../Header/RightNav'
 
-export default function index() {
+import { StyledBurger } from "./styled";
+
+export default function Burguer() {
+  const [open, setOpen] = useState(false)
+
   return (
-    <DivBurguer className="container">
-      <StyledBurger className="on">
+    <>
+      <StyledBurger className="on" open={open} onClick={() => setOpen(!open)}>
         <div />
         <div />
         <div />
       </StyledBurger>
-    </DivBurguer>
+      <RightNav open={open}/>
+    </>
   );
 }

@@ -21,7 +21,7 @@ export const ListWrapper = styled.section`
          ${media.lessThan("576px")`
            max-width: 92%;
            word-wrap: break-word;
-           padding: 5px 6px;
+           padding: 10px 6px;
   `}
 
          ${media.lessThan("310px")`
@@ -66,9 +66,9 @@ export const ListRigthDiv = styled(ListLeftDiv)`
          word-wrap: break-word;
 
          ${media.lessThan("576px")`
-           max-width: 45%;
+           max-width: 50%;
            word-wrap: break-word;
-           margin-right: 0;
+           justify-content: flex-end;
   `}
        `;
 
@@ -93,7 +93,7 @@ export const ListPrice = styled.h2`
 
   ${media.lessThan("576px")`
          margin-right: 10px;
-         margin-left: -25px;
+         margin-left: -50px;
          font-size: 1.65rem;
          max-width: 70%;
          word-wrap: break-word;
@@ -109,7 +109,7 @@ export const ListIconPencil = styled(Pencil)`
   ${media.lessThan("576px")`
            margin-right: 0;
            width: 22px;
-           margin-left: 1px;
+           margin-left: 10px;
   `}
 `;
 
