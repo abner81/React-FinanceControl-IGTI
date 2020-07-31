@@ -105,7 +105,7 @@ export default function Lancamento() {
 
         <S.InputWrapper>
           <div className="row justify-content-center">
-            <div className="col">
+            <div className="col-12 col-md-12 col-lg-6">
               <S.LabelGrid for="categoria">Categoria:</S.LabelGrid>
               <input
                 type="text"
@@ -116,7 +116,7 @@ export default function Lancamento() {
               />
               {errors.categoria && <p>Campo obrigatório</p>}
             </div>
-            <div className="col">
+            <div className="col-12 col-md-12 col-lg-6">
               <S.LabelGrid for="descricao">Descrição:</S.LabelGrid>
               <input
                 type="text"
@@ -133,7 +133,7 @@ export default function Lancamento() {
             className="row justify-content-center"
             style={{ marginTop: "5px" }}
           >
-            <div className="col">
+            <div className="col-12 col-md-6 col-lg-6">
               <S.LabelGrid for="value">Valor:</S.LabelGrid>
               <input
                 type="number"
@@ -144,7 +144,7 @@ export default function Lancamento() {
               />
               {errors.value && <p>Campo obrigatório</p>}
             </div>
-            <div className="col">
+            <div className="col-12 col-md-6 col-lg-6">
               <S.LabelGrid for="date">Data:</S.LabelGrid>
               <input
                 type="date"
@@ -166,7 +166,6 @@ export default function Lancamento() {
       )}
       {requisitionSucess === false && (
         <Alert type="danger">Erro ao adicionar a transação...</Alert>
-        
       )}
     </S.FormWrapper>
   );

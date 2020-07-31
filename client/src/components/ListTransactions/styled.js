@@ -7,26 +7,24 @@ import { Delete } from "@styled-icons/material/Delete";
 import { Modal } from "react-bootstrap";
 
 export const ListWrapper = styled.section`
-         width: 100%;
-         display: flex;
-         flex-direction: row;
-         align-items: center;
-         justify-content: space-between;
-         background: white;
-         border-radius: 8px;
-         padding: 8px 15px;
-         margin: 0 auto 10px auto;
-         word-wrap: break-word;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 8px;
+  padding: 8px 15px;
+  margin: 0 auto 10px auto;
+  word-wrap: break-word;
 
-         ${media.lessThan("576px")`
+  ${media.lessThan("576px")`
            max-width: 92%;
+           min-width: 315px;
            word-wrap: break-word;
            padding: 10px 6px;
   `}
-
-         ${media.lessThan("310px")`
-  `}
-       `;
+`;
 
 export const ListDay = styled.h3`
   font-size: 1.7rem;
@@ -63,14 +61,14 @@ export const ListLeftDiv = styled.div`
 `;
 
 export const ListRigthDiv = styled(ListLeftDiv)`
-         word-wrap: break-word;
+  word-wrap: break-word;
 
-         ${media.lessThan("576px")`
+  ${media.lessThan("576px")`
            max-width: 50%;
            word-wrap: break-word;
            justify-content: flex-end;
   `}
-       `;
+`;
 
 export const ListCategory = styled.h4`
   font-size: 1.28rem;
@@ -97,6 +95,10 @@ export const ListPrice = styled.h2`
          font-size: 1.65rem;
          max-width: 70%;
          word-wrap: break-word;
+  `}
+
+  ${media.lessThan("321px")`
+         margin-right: -2px;
   `}
 `;
 
@@ -147,39 +149,40 @@ export const ListIconDelete = styled(Delete)`
 // Styles do componente MODAL
 
 export const ModalWrapper = styled(Modal)`
-         ${media.lessThan("576px")`
+  background: rgba(70, 82, 197, 0.9);
+  border-radius: 6px;
+
+  .footerText {
+    font-size: 1.4rem;
+  }
+
+  input.input {
+    width: 100%;
+    height: 40px;
+    color: #595959;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+  }
+
+  ${media.lessThan("576px")`
            width: 100%;
            padding: 0 5% 0 5%;
            margin: 0 auto;
-           background: rgba(70, 82, 197, 0.9);
-           border-radius: 6px;
 
-           input.input {
-             width: 100%;
-             height: 40px;
-             font-size: 1.3rem;
-             color: #595959;
-             margin-bottom: 20px;
-           }
-
-           .footerText {
-             font-size: 1.4rem;
-           }
   `}
-       `;
+`;
 
 export const ModalButtonClose = styled.button`
-         color: red;
-         font-weight: 600;
-         font-size: 1.8rem;
-         text-decoration: none;
-         border: none;
+  color: red;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-decoration: none;
+  border: none;
 
-         :focus {
-           outline: none;
-         }
-
-       `;
+  :focus {
+    outline: none;
+  }
+`;
 
 export const ModalBodyWrapper = styled.div``;
 

@@ -37,7 +37,7 @@ const IconWrapper = styled.div`
     box-shadow: 0px 0px 10px -3px #000000;
   }
 
-  ${media.lessThan("large")`{
+  ${media.lessThan("large")`
     display: none;
   `}
 `;

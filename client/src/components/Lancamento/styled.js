@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const FormWrapper = styled.main`
          background: white;
+         min-width: 280px;
          border-radius: 5px;
          margin-top: -60px;
          display: flex;
@@ -9,6 +11,13 @@ export const FormWrapper = styled.main`
          flex-direction: column;
          padding: 10px 10px;
          box-shadow: 6px 4px 10px rgba(166, 170, 200, 0.25);
+
+         ${media.lessThan("medium")`
+           width: 90%;
+           height: auto;
+           margin: -60px auto 0 auto;
+           size: 50px;
+  `}
        `;
 
 export const RadioLabel = styled.label`
@@ -64,6 +73,6 @@ export const SubmitDiv = styled.div`
 `;
 
 export const HookInput= styled.input`
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 `
 

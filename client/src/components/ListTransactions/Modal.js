@@ -79,7 +79,7 @@ const ModalComponent = ({
           />
           {errors.category && <S.P>Campo obrigatório</S.P>}
           <div class="row">
-            <div class="col">
+            <div class="col-12 col-md-6">
               <S.ModalLabel>Valor:</S.ModalLabel>
               <input
                 type="number"
@@ -92,7 +92,7 @@ const ModalComponent = ({
               />
               {errors.value && <S.P>Campo obrigatório</S.P>}
             </div>
-            <div class="col">
+            <div class="col-12 col-md-6">
               <S.ModalLabel>Data:</S.ModalLabel>
               <input
                 type="date"
